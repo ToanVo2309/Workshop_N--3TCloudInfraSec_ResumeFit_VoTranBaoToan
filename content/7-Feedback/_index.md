@@ -5,11 +5,6 @@ weight: 7
 chapter: false
 pre: " <b> 7. </b> "
 ---
-
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
 > Here, you can freely share your personal opinions about your experience participating in the First Cloud AI Journey program. This will help the FCAJ team improve any shortcomings based on the following aspects:
 
 ### Overall Evaluation
@@ -34,14 +29,15 @@ The company provides an internship allowance and offers flexible working hours w
 
 ---
 
-### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
-
----
+### Survey Responses
+*   **What did you find most satisfying during your internship?**
+    *   The open learning environment and the opportunity to work directly with real-world AWS projects. Participating in FCAJ Community Day events helped me connect with industry experts and learn the mindset of building practical AI solutions.
+*   **What do you think the program should improve for future interns?**
+    *   The program could introduce more hands-on Lab sessions with direct mentor support in small groups for complex AWS services to help interns learn faster.
+*   **If recommending to a friend, would you suggest they intern here? Why or why not?**
+    *   Definitely yes. This is a wonderful environment not only to learn technical skills but also to practice system design thinking, serious teamwork, and professional ethics (integrity).
 
 ### Suggestions & Expectations
-- Do you have any suggestions to improve the internship experience?  
-- Would you like to continue this program in the future?  
-- Any other comments (free sharing):
+*   **Suggestions to improve the internship experience:** Increase the duration of live demo sessions and share practical blueprints of large projects from AWS Vietnam.
+*   **Desire to continue the program:** I look forward to continuing my journey with the FCAJ community in the future, either by supporting the next generation of interns or by contributing new technical articles.
+*   **Other comments:** I would like to express my sincere gratitude to the FCAJ organizers, mentors, and everyone in the community for creating the best conditions for me to complete this meaningful internship!

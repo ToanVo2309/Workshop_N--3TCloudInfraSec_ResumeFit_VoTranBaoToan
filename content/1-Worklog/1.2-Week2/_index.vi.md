@@ -5,55 +5,23 @@ weight: 1
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 2:
-
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu dịch vụ tính toán cốt lõi Amazon EC2, lưu trữ đối tượng Amazon S3 và quản trị truy cập IAM.
+* Hiểu phương thức kết nối SSH key pair và cấu hình tường lửa Security Group cơ bản.
+* Áp dụng IAM Policy để phân quyền chi tiết cho người dùng và tài nguyên hệ thống.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | ------------ | --------------- | -------------- |
+| Thứ 2 | Nghiên cứu các thành phần IAM: User, Group, Role, Policy và nguyên lý đặc quyền tối thiểu. | 27/04/2026 | 27/04/2026 | [Video](https://www.youtube.com/watch?v=7X16cZlWfO8) <br> [Tổng quan về AWS IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) |
+| Thứ 3 | Tìm hiểu lý thuyết EC2: các loại Instance, AMI, EBS Volume, Key Pair và Security Group. | 28/04/2026 | 28/04/2026 | [Khái niệm cơ bản về EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html) |
+| Thứ 4 | Thực hành tạo EC2 Linux Instance, cấu hình Security Group và kết nối SSH từ máy cá nhân. | 29/04/2026 | 29/04/2026 | [Kết nối SSH vào EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html) |
+| Thứ 5 | Nghiên cứu lý thuyết Amazon S3: Bucket, Object, các lớp lưu trữ, Versioning và Bucket Policy. | 30/04/2026 | 30/04/2026 | [Quản lý Amazon S3 Bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingBucket.html) |
+| Thứ 6 | Thực hành tạo S3 Bucket, upload tài liệu và cấu hình phân quyền truy cập thông qua IAM Role. | 01/05/2026 | 01/05/2026 | [Cấp quyền IAM Role cho EC2](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html) |
 
 ### Kết quả đạt được tuần 2:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Nắm vững cơ chế bảo mật phân quyền AWS sử dụng IAM User và các IAM Policy tự định nghĩa.
+* Tạo lập và kết nối từ xa thành công vào máy chủ ảo EC2 bằng SSH key an toàn.
+* Triển khai lưu trữ trên Amazon S3 với cơ chế bảo mật phân quyền đọc ghi chặt chẽ.
+* Liên kết phân quyền an toàn giữa máy chủ EC2 và bộ lưu trữ S3 thông qua việc gán IAM Role.

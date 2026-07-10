@@ -5,53 +5,23 @@ weight: 2
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 10 Objectives:
-
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Collaborate on group project architecture and system diagrams.
+* Select specific AWS configurations, instance sizes, and integration hooks.
+* Establish clean design documentation and preparation for the launch phase.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | ---------- | --------------- | ------------------ |
+| Monday | Conduct team alignment meetings to merge individual research into the master architecture. | 22/06/2026 | 22/06/2026 | [Video](https://www.youtube.com/watch?v=US39J1lP9g4) <br> [Cross-Account Access Delegation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html) |
+| Tuesday | Draft complete architecture diagrams using professional tools (e.g. Draw.io, Eraser.io). | 23/06/2026 | 23/06/2026 | [Deploying Multi-Tier Web Apps](https://aws.amazon.com/getting-started/guides/deploy-webapp-ryo/) |
+| Wednesday | Detail data flows, security boundaries, and interaction protocols between services. | 24/06/2026 | 24/06/2026 | [AWS Security Reference Architecture](https://docs.aws.amazon.com/prescriptive-guidance/latest/aws-security-reference-architecture/welcome.html) |
+| Thursday | Determine resource sizes, pricing calculations, and scalability thresholds. | 25/06/2026 | 25/06/2026 | [AWS Pricing Calculator](https://calculator.aws/) |
+| Friday | Write the system design document (SDD) and initialize the git repository structure. | 26/06/2026 | 26/06/2026 | [AWS CodeCommit Git Setup](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) |
 
 ### Week 10 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Finalized the comprehensive multi-tier or serverless system architecture blueprint.
+* Acquired proficiency in standard professional cloud architecture mapping tools.
+* Completed cost estimation for project resources using AWS Pricing Calculator.
+* Successfully initialized repository structure and infrastructure-as-code boilerplate.

@@ -5,53 +5,23 @@ weight: 1
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 9 Objectives:
-
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Conduct deep research on advanced AWS services crucial for the project.
+* Build proof-of-concept (PoC) scripts or prototypes for core project features.
+* Share cloud technology knowledge on technical and professional networks.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | ---------- | --------------- | ------------------ |
+| Monday | Deep-dive into advanced AWS services (e.g., Amplify, ECS Fargate, DynamoDB, Cognito). | 15/06/2026 | 15/06/2026 | [Video](https://www.youtube.com/watch?v=3Kq122sO3fM) <br> [AWS Fargate & ECS Containers](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_Fargate.html) |
+| Tuesday | Set up test configurations (PoC) to verify performance and limits of the chosen services. | 16/06/2026 | 16/06/2026 | [AWS Amplify Web Hosting](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html) |
+| Wednesday | Draft technical articles explaining cloud principles or configuration guides. | 17/06/2026 | 17/06/2026 | [Writing Developers Tech Blogs](https://aws.amazon.com/blogs/startups/how-to-write-a-technical-blog-post-that-developers-will-actually-read/) |
+| Thursday | Review, format, and publish knowledge sharing posts on tech forums or LinkedIn. | 18/06/2026 | 18/06/2026 | [AWS Blogs Community](https://aws.amazon.com/blogs/) |
+| Friday | Collect community feedback to refine implementation strategies. | 19/06/2026 | 19/06/2026 | [AWS Builders Flash Publications](https://aws.amazon.com/builders-flash/) |
 
 ### Week 9 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Mastered advanced containerization or serverless integration options.
+* Validated implementation feasibility of critical project features via PoCs.
+* Published a well-received tech blog post raising public cloud awareness.
+* Enhanced communication skills and reinforced learning through teaching others.

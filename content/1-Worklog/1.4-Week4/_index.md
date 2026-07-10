@@ -5,53 +5,23 @@ weight: 1
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 4 Objectives:
-
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Implement infrastructure monitoring with CloudWatch and activity auditing with CloudTrail.
+* Protect applications from web attacks using AWS WAF and encrypt sensitive data with AWS KMS.
+* Evaluate IAM permissions using IAM Access Analyzer.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Day | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | ---------- | --------------- | ------------------ |
+| Monday | Learn CloudWatch concepts: Metrics, Dashboards, Alarms, Logs and CloudTrail API auditing. | 11/05/2026 | 11/05/2026 | [Video](https://www.youtube.com/watch?v=aG3_5CevQ1E) <br> [CloudWatch Overview](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) |
+| Tuesday | Study AWS WAF web access control lists and AWS Key Management Service (KMS) encryption. | 12/05/2026 | 12/05/2026 | [CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) |
+| Wednesday | Configure a CloudWatch Alarm to monitor EC2 CPU utilization and trigger email alerts (SNS). | 13/05/2026 | 13/05/2026 | [Configure CloudWatch Alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ConsoleAlarms.html) |
+| Thursday | Create a Customer Managed Key (CMK) in KMS and use it to encrypt/decrypt S3 objects. | 14/05/2026 | 14/05/2026 | [AWS KMS Cryptography](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) |
+| Friday | Analyze and resolve security risks highlighted by IAM Access Analyzer regarding external access. | 15/05/2026 | 15/05/2026 | [IAM Access Analyzer Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html) |
 
 ### Week 4 Achievements:
-
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Established unified server performance logging and real-time monitoring.
+* Created automated email notification pipelines for infrastructure alerts.
+* Successfully implemented server-side and client-side encryption using AWS KMS keys.
+* Audited public/cross-account access rules to enforce standard cloud security compliance.

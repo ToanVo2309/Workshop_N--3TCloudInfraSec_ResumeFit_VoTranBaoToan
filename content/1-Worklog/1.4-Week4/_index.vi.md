@@ -5,55 +5,23 @@ weight: 1
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 4:
-
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Triển khai giám sát hạ tầng bằng CloudWatch và ghi nhật ký hoạt động hệ thống bằng CloudTrail.
+* Bảo vệ ứng dụng web trước các đợt tấn công bằng AWS WAF và mã hóa dữ liệu nhạy cảm bằng AWS KMS.
+* Đánh giá và tối ưu hóa quyền hạn truy cập tài nguyên thông qua IAM Access Analyzer.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | ------------ | --------------- | -------------- |
+| Thứ 2 | Tìm hiểu hệ thống CloudWatch (Metric, Dashboard, Alarm, Logs) và hệ thống kiểm toán API CloudTrail. | 11/05/2026 | 11/05/2026 | [Video](https://www.youtube.com/watch?v=aG3_5CevQ1E) <br> [Giới thiệu Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) |
+| Thứ 3 | Nghiên cứu nguyên lý hoạt động của AWS WAF (Web ACLs) và dịch vụ quản lý khóa mã hóa AWS KMS. | 12/05/2026 | 12/05/2026 | [Hướng dẫn AWS CloudTrail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html) |
+| Thứ 4 | Thực hành tạo CloudWatch Alarm giám sát chỉ số CPU của EC2 và gửi cảnh báo qua email (SNS). | 13/05/2026 | 13/05/2026 | [Thiết lập CloudWatch Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ConsoleAlarms.html) |
+| Thứ 5 | Tạo khóa mã hóa tùy chỉnh (CMK) bằng KMS và thực hành mã hóa tệp dữ liệu tải lên S3. | 14/05/2026 | 14/05/2026 | [Tổng quan mã hóa AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) |
+| Thứ 6 | Chạy IAM Access Analyzer để quét phát hiện các tài nguyên đang bị phân quyền mở rộng ra bên ngoài. | 15/05/2026 | 15/05/2026 | [Phân tích quyền với Access Analyzer](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html) |
 
 ### Kết quả đạt được tuần 4:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Xây dựng thành công cơ chế giám sát hiệu năng máy chủ và ghi nhận logs thời gian thực.
+* Thiết lập kênh gửi thông báo cảnh báo tự động qua email khi máy chủ gặp sự cố quá tải.
+* Mã hóa thành công dữ liệu lưu trữ tĩnh (Data-at-rest) trên Amazon S3 dùng khóa bảo mật tự quản lý.
+* Phân tích và khắc phục các lỗ hổng phân quyền tài nguyên mở qua kết quả của IAM Access Analyzer.

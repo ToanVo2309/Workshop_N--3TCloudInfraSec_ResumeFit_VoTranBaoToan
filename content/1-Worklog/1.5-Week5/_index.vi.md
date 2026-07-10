@@ -5,55 +5,23 @@ weight: 1
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 5:
-
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Triển khai kiến trúc có tính sẵn sàng cao thông qua bộ cân bằng tải Application Load Balancer (ALB).
+* Cấu hình Auto Scaling Group (ASG) tự động co giãn số lượng máy chủ theo tải thực tế.
+* Tích hợp AWS WAF phía trước bộ cân bằng tải để lọc và chặn các truy cập độc hại.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | ------------ | --------------- | -------------- |
+| Thứ 2 | Nghiên cứu nguyên lý hoạt động của Application Load Balancer, Target Group và cơ chế Health Check. | 18/05/2026 | 18/05/2026 | [Video](https://www.youtube.com/watch?v=Vl03U1jF4gI) <br> [Giới thiệu Application Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html) |
+| Thứ 3 | Tìm hiểu thành phần Auto Scaling Group: Launch Template, Scaling Policy và thời gian chờ Cooldown. | 19/05/2026 | 19/05/2026 | [Khái niệm Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html) |
+| Thứ 4 | Thực hành tạo ALB và cấu hình phân phối tải đều sang các máy chủ web EC2 ở các AZ khác nhau. | 20/05/2026 | 20/05/2026 | [Hướng dẫn cấu hình ALB](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancer-getting-started.html) |
+| Thứ 5 | Tạo ASG thiết lập ngưỡng tự động tăng giảm số lượng máy chủ dựa trên chỉ số CPU tiêu thụ. | 21/05/2026 | 21/05/2026 | [Chính sách co giãn Auto Scaling](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html) |
+| Thứ 6 | Gắn AWS WAF chặn các truy cập IP xấu vào ALB và chạy script giả lập tải để kiểm tra tính co giãn. | 22/05/2026 | 22/05/2026 | [Tài liệu lập trình AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html) |
 
 ### Kết quả đạt được tuần 5:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Xây dựng thành công hệ thống Web có khả năng chịu lỗi trên nhiều vùng sẵn sàng (Multi-AZ).
+* Cấu hình cơ chế tự sửa lỗi (Self-healing) tự động thay thế máy chủ bị hỏng thông qua Health Check.
+* Thiết lập thành công chính sách co giãn tự động linh hoạt giúp tối ưu chi phí hạ tầng.
+* Bảo vệ thành công cổng truy cập chính ALB khỏi các cuộc tấn công SQL Injection và DDoS cơ bản.

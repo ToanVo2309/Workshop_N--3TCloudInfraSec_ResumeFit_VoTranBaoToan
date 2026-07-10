@@ -5,27 +5,24 @@ weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
-# Secure Hybrid Access to S3 using VPC Endpoints
+# Deploying AI Resume Matching & Interview Preparation Platform on AWS
 
 #### Overview
 
-**AWS PrivateLink** provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.
+This lab provides step-by-step guidance on deploying the comprehensive **Resume Fit** system on AWS. Resume Fit is an AI-powered application designed to match Candidate Resumes (CVs) with Job Descriptions (JDs) quickly and transparently, assisting recruitment decisions.
 
-In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.
+The system is designed following a standard architecture on AWS, ensuring scalability and high availability.
 
-You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location
-+ **Gateway** - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.
-+ **Interface** - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.
+#### Contents
 
-#### Content
-
-1. [Workshop overview](5.1-Workshop-overview)
-2. [Prerequiste](5.2-Prerequiste/)
-3. [Access S3 from VPC](5.3-S3-vpc/)
-4. [Access S3 from On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
-6. [Clean up](5.6-Cleanup/)
+1. [5.1. Introduction](5.1-intro/)
+2. [5.2. Prerequisites](5.2-prerequisites/)
+3. [5.3. Build Virtual Networks](5.3-networking/)
+4. [5.4. Configure Security and IAM Policies](5.4-security/)
+5. [5.5. S3 Storage and SQS Queues Setup](5.5-storage-queue/)
+6. [5.6. RDS PostgreSQL Configuration](5.6-database/)
+7. [5.7. Deploy EC2 Instances](5.7-compute/)
+8. [5.8. Auto Scaling and Load Balancing](5.8-scaling-alb/)
+9. [5.9. System Observability (Monitoring)](5.9-monitoring/)
+10. [5.10. Verification and Testing](5.10-testing/)
+11. [5.11. Clean Up Resources](5.11-cleanup/)

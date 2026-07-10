@@ -5,18 +5,13 @@ weight: 3
 chapter: false
 pre: " <b> 3. </b> "
 ---
+Dưới đây là các bài blog chia sẻ kiến thức chuyên môn tôi đã đăng tải trên AWS Study Group:
 
-{{% notice warning %}}  
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+###  [Blog 1 - GIÁM SÁT HỆ THỐNG TRÊN AWS: ĐƯA CLOUDWATCH METRICS VÀO OPENTELEMETRY COLLECTOR TRONG VPC BẰNG LAMBDA](3.1-Blog1/)
+Blog này giới thiệu giải pháp giám sát dạng Push-based kết hợp AWS Lambda, Amazon Data Firehose và Network Load Balancer để luân chuyển các chỉ số từ AWS CloudWatch trực tiếp vào hệ thống OpenTelemetry Collector nội bộ trong VPC, giúp tối ưu chi phí và loại bỏ phụ thuộc công nghệ.
 
-Tại đây sẽ là phần liệt kê, giới thiệu các blogs mà các bạn đã đăng trên [AWS Study Group](https://www.facebook.com/groups/awsstudygroupfcj). Ví dụ:
+###  [Blog 2 - Kinh Nghiệm Thực Chiến: Xây Dựng AI Gateway Quản Trị Amazon Bedrock Bằng API Gateway](3.2-Blog2/)
+Blog này chia sẻ trải nghiệm thực chiến thiết kế lớp bảo vệ AI Gateway dùng Amazon API Gateway và AWS Lambda để kiểm soát xác thực, điều phối rate limiting, quota và giảm chi phí khi sử dụng chung Amazon Bedrock.
 
-###  [Blog 1 - SESSION POLICIES TRONG AMAZON EKS POD IDENTITY](3.1-Blog1/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
-
-###  [Blog 2 - ...](3.2-Blog2/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
-
-###  [Blog 3 - ...](3.3-Blog3/)
-Blog này giới thiệu Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+###  [Blog 3 - Một tính năng khá hay của AWS Lake Formation](3.3-Blog3/)
+Blog này giới thiệu tính năng mới của AWS Lake Formation giúp đồng nhất hóa cơ chế bảo mật phân quyền giữa Athena và EMR Spark bằng cách tự động cung cấp temporary credentials để Spark truy cập trực tiếp file trên S3.

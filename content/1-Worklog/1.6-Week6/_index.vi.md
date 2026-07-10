@@ -5,54 +5,23 @@ weight: 1
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 6:
-
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tìm hiểu ảo hóa cơ sở dữ liệu quan hệ với dịch vụ Amazon RDS.
+* Bảo mật cơ sở dữ liệu bên trong Private Subnet và cấu hình phân quyền truy xuất.
+* Cấu hình chính sách sao lưu tự động, tạo Snapshot thủ công và thực hành khôi phục dữ liệu.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | ------------ | --------------- | -------------- |
+| Thứ 2 | Tìm hiểu các Database Engine trên RDS (MySQL/PostgreSQL), các loại Storage và DB Subnet Group. | 25/05/2026 | 25/05/2026 | [Video](https://www.youtube.com/watch?v=hZ-kH52vdfg) <br> [Tài liệu cơ sở dữ liệu RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html) |
+| Thứ 3 | Nghiên cứu cơ chế dự phòng Multi-AZ (High Availability) và nhân bản đọc Read Replica. | 26/05/2026 | 26/05/2026 | [Cơ chế dự phòng Multi-AZ](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZ.html) |
+| Thứ 4 | Thực hành tạo RDS MySQL Instance nằm hoàn toàn trong Private Subnet sử dụng Subnet Group. | 27/05/2026 | 27/05/2026 | [Triển khai RDS trong VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html) |
+| Thứ 5 | Cấu hình Security Group của RDS chỉ cho phép duy nhất các máy chủ Web EC2 kết nối vào cổng database. | 28/05/2026 | 28/05/2026 | [Kết nối EC2 tới cơ sở dữ liệu RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios.html) |
+| Thứ 6 | Thiết lập backup tự động, tạo thử một bản DB Snapshot thủ công và thực hành khôi phục cơ sở dữ liệu. | 29/05/2026 | 29/05/2026 | [Sao lưu và Khôi phục RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html) |
 
 ### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Khởi tạo thành công hệ thống cơ sở dữ liệu quan hệ được bảo vệ đa lớp theo tiêu chuẩn bảo mật.
+* Cô lập hoàn toàn truy cập từ bên ngoài Internet vào DB, chỉ cho phép kết nối nội bộ từ ứng dụng web.
+* Nắm vững nguyên lý hoạt động của cấu hình Multi-AZ tự động đồng bộ dữ liệu dự phòng.
+* Thực hiện thành công việc sao lưu và khôi phục dữ liệu từ Snapshot để sẵn sàng ứng phó sự cố.

@@ -5,55 +5,23 @@ weight: 1
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 9:
-
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Nghiên cứu chuyên sâu về các dịch vụ AWS nâng cao phục vụ cho yêu cầu đặc thù của dự án.
+* Xây dựng các bài Lab thử nghiệm nhỏ (PoC) để kiểm chứng tính khả thi của công nghệ.
+* Biên soạn tài liệu và chia sẻ kiến thức công nghệ AWS lên các cộng đồng học tập.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | ------------ | --------------- | -------------- |
+| Thứ 2 | Nghiên cứu tài liệu chính hãng của các dịch vụ chuyên sâu (ví dụ: Amplify, ECS Fargate, DynamoDB, Cognito). | 15/06/2026 | 15/06/2026 | [Video](https://www.youtube.com/watch?v=3Kq122sO3fM) <br> [Triển khai ECS với AWS Fargate](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_Fargate.html) |
+| Thứ 3 | Tạo các môi trường test nhỏ để chạy thử code kiểm tra tính kết nối giữa các dịch vụ. | 16/06/2026 | 16/06/2026 | [Hosting ứng dụng với AWS Amplify](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html) |
+| Thứ 4 | Viết bài chia sẻ kỹ thuật chi tiết về một chủ đề AWS tâm đắc đã được thực hành. | 17/06/2026 | 17/06/2026 | [Hướng dẫn viết bài blog kỹ thuật](https://aws.amazon.com/blogs/startups/how-to-write-a-technical-blog-post-that-developers-will-actually-read/) |
+| Thứ 5 | Đăng tải bài viết lên mạng xã hội học tập (như LinkedIn, AWS Study Group) để chia sẻ kiến thức. | 18/06/2026 | 18/06/2026 | [Cộng đồng công nghệ AWS Blog](https://aws.amazon.com/blogs/) |
+| Thứ 6 | Tiếp thu các ý kiến đóng góp từ cộng đồng để cải tiến tối ưu hóa phương án kỹ thuật. | 19/06/2026 | 19/06/2026 | [Bản tin kỹ thuật Builders Flash](https://aws.amazon.com/builders-flash/) |
 
 ### Kết quả đạt được tuần 9:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+* Nắm vững nguyên lý hoạt động của các dịch vụ chuyên sâu phục vụ trực tiếp cho dự án nhóm.
+* Xây dựng thành công bản demo chức năng cốt lõi chạy ổn định.
+* Hoàn thành việc đăng tải bài viết kỹ thuật chất lượng cao, thu hút lượng tương tác tốt.
+* Nâng cao kỹ năng trình bày chuyên môn kỹ thuật một cách dễ hiểu cho cộng đồng.

@@ -5,27 +5,41 @@ weight: 1
 chapter: false
 pre: " <b> 3.3. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+# Một tính năng khá hay của AWS Lake Formation
 
-# SESSION POLICIES TRONG AMAZON EKS POD IDENTITY
+Gần đây khi tìm hiểu về Data Lake trên AWS, mình đọc được một bài viết khá thú vị từ AWS về Lake Formation nên muốn chia sẻ lại với mọi người.
 
-Amazon EKS Pod Identity vừa bổ sung tính năng session policies, cho phép bạn thu hẹp quyền IAM một cách linh hoạt và chính xác cho từng pod mà không cần tạo thêm nhiều IAM roles riêng biệt. Đây là bước tiến quan trọng giúp áp dụng nguyên tắc least privilege hiệu quả hơn trong môi trường Kubernetes quy mô lớn.
+Nhìn vào mô hình có thể thấy:
+* **EMR Spark** đọc/ghi dữ liệu trực tiếp với S3 thông qua IAM Permissions.
+* **Lake Formation** quản lý quyền trên các bảng dữ liệu trong Glue Catalog.
+* **Athena** truy vấn dữ liệu dựa trên quyền của Lake Formation.
 
-Các điểm chính cần nắm:
+Điều này dẫn đến một tình huống khá phổ biến:
+Bạn có thể query dữ liệu bằng Athena bình thường, nhưng khi dùng Spark để đọc trực tiếp file trong S3 lại gặp lỗi `Access Denied`.
 
-* Session policy là một IAM policy inline được chỉ định khi tạo hoặc cập nhật Pod Identity association.
-* Quyền hiệu quả = intersection (giao) giữa permissions của IAM role và session policy → session policy chỉ có thể thu hẹp, không thể mở rộng quyền.
-* Giúp tránh tình trạng over-permissioning khi reuse chung một IAM role cho nhiều workloads có nhu cầu khác nhau.
-* Hỗ trợ cả same-account và cross-account (qua IAM role chaining).
-* Giảm đáng kể số lượng IAM roles cần quản lý, tránh chạm giới hạn quota IAM trong cluster lớn.
-* Cấu hình dễ dàng qua AWS Management Console, AWS CLI hoặc AWS SDK khi tạo association giữa Kubernetes ServiceAccount và IAM role.
+Nguyên nhân là vì Athena và Spark đang sử dụng hai cơ chế phân quyền khác nhau:
+* **Athena** → Lake Formation
+* **Spark đọc file S3** → IAM / S3 Policy
 
-Tính năng này đặc biệt hữu ích khi bạn có nhiều ứng dụng chạy trên cùng một IAM role nhưng cần giới hạn quyền khác nhau (ví dụ: một pod chỉ đọc S3 bucket cụ thể, pod khác chỉ gọi một số API nhất định).
+AWS vừa giới thiệu một tính năng mới giúp giải quyết vấn đề này.
+Lake Formation giờ đây có thể cấp temporary credentials để Spark truy cập trực tiếp dữ liệu trong S3 dựa trên quyền đã được cấp trong Lake Formation thông qua API:
+`GetTemporaryDataLocationCredentials()`
 
-...Hình ảnh...
+Theo mình, điểm hay nhất của tính năng này là:
+* Giảm việc phải quản lý quyền ở nhiều nơi.
+* Hạn chế lỗi `Access Denied` do lệch cấu hình.
+* Thuận tiện hơn cho các workload Spark, ETL và Machine Learning.
+* Dễ theo dõi hoạt động truy cập dữ liệu thông qua CloudTrail.
 
-...Link...
+Một vài lưu ý là tính năng này hiện yêu cầu:
+* S3 Location phải được đăng ký với Lake Formation.
+* Yêu cầu Amazon EMR 6.15.0+ hoặc 7.1.0+.
+* Chưa hỗ trợ Apache Iceberg.
+* Chưa hỗ trợ Cross-Region.
 
-...Hướng dẫn...
+Mình thấy đây là một cải tiến khá hữu ích cho các hệ thống Data Lake trên AWS, đặc biệt trong các môi trường sử dụng cả Athena và EMR Spark.
+
+![Sơ đồ kiến trúc](/images/blog3_arch.png)
+
+* [Link bài viết Facebook](https://www.facebook.com/groups/awsstudygroupfcj/posts/2191055074992786/?notif_id=1782041739635661&notif_t=group_post_approved&ref=notif)
+* [Tài liệu hướng dẫn AWS](https://aws.amazon.com/vi/blogs/big-data/access-amazon-s3-data-files-directly-using-aws-lake-formation-permissions/?fbclid=IwY2xjawSu8LtleHRuA2FlbQIxMABicmlkETFDd1poRWJtcTNFMEw4bmJKc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHlfRqurG5Rir4FRt1bIoRDfriCsPR9wuIOYoTnZdypKxZVcIBVgtWsk4A8C9_aem_pW5Px8mN6tGNyQOA7DJaXA)

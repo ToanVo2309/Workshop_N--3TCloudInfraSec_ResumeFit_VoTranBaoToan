@@ -5,29 +5,24 @@ weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
-
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-
-# Đảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint
+# Triển khai AI Resume Matching & Interview Preparation Platform trên AWS
 
 #### Tổng quan
 
-**AWS PrivateLink** cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.
+Bài lab này hướng dẫn chi tiết cách triển khai toàn diện hệ thống **Resume Fit** trên nền tảng đám mây AWS. Resume Fit là một ứng dụng AI giúp đánh giá độ phù hợp giữa Hồ sơ ứng viên (CV) và Yêu cầu công việc (JD) một cách nhanh chóng, minh bạch nhằm hỗ trợ ra quyết định tuyển dụng.
 
-Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.
-
-Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).
-+ **Gateway** - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)
-+ **Interface** - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.
+Hệ thống được thiết kế theo kiến trúc chuẩn trên AWS, đảm bảo tính mở rộng và sẵn sàng cao.
 
 #### Nội dung
 
-1. [Tổng quan về workshop](5.1-Workshop-overview/)
-2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
-6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+1. [5.1. Giới thiệu](5.1-intro/)
+2. [5.2. Các bước chuẩn bị](5.2-prerequisites/)
+3. [5.3. Xây dựng mạng ảo VPC](5.3-networking/)
+4. [5.4. Cấu hình Bảo mật và IAM Policies](5.4-security/)
+5. [5.5. Thiết lập Lưu trữ S3 và Hàng đợi SQS](5.5-storage-queue/)
+6. [5.6. Cấu hình RDS PostgreSQL](5.6-database/)
+7. [5.7. Triển khai các Instance EC2](5.7-compute/)
+8. [5.8. Tự động mở rộng và Cân bằng tải](5.8-scaling-alb/)
+9. [5.9. Giám sát Hệ thống (Observability)](5.9-monitoring/)
+10. [5.10. Kiểm thử Ứng dụng](5.10-testing/)
+11. [5.11. Dọn dẹp tài nguyên](5.11-cleanup/)
