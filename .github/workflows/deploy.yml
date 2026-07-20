@@ -24,7 +24,7 @@ jobs:
           extended: true
 
       - name: Build Hugo Site
-        run: hugo --minify -b "https://toanvo2309.github.io/Workshop_N--3TCloudInfraSec_ResumeFit_VoTranBaoToan/"
+        run: hugo --minify
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
