@@ -60,5 +60,7 @@ pre: " <b> 4.2. </b> "
 ### Some event photos
 ![Event Photo 1](/images/event2_1.jpg)
 ![Event Photo 2](/images/event2_2.jpg)
+![Event Photo 3](/images/event2_3.jpg)
+![Event Photo 4](/images/event2_4.jpg)
 
 > Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
