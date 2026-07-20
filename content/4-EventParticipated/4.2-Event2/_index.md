@@ -58,6 +58,7 @@ pre: " <b> 4.2. </b> "
 * **Next Steps:** Dive deeper into AI Mindset and AI Adoption. Always remember the system building rule: Not only must it run, but it "must run securely, reliably, and serve the users". Read official documentation when configuring AI parameters instead of listening to online rumors.
 
 ### Some event photos
-![Event Photo 1](/images/event2_1.png)
+![Event Photo 1](/images/event2_1.jpg)
+![Event Photo 2](/images/event2_2.jpg)
 
 > Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.

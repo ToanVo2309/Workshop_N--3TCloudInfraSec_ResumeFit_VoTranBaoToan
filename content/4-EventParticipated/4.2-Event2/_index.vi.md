@@ -58,6 +58,7 @@ pre: " <b> 4.2. </b> "
 *   **Định hướng học tập hoặc phát triển tiếp theo:** Đi sâu vào tìm hiểu AI Mindset và AI Adoption. Luôn nhớ quy tắc khi xây dựng hệ thống: Không chỉ chạy được, mà nó "phải chạy một cách an toàn, chạy đáng tin cậy và phục vụ người dùng". Đọc kỹ tài liệu chính thức (official doc) khi cấu hình tham số AI thay vì nghe trên mạng.
 
 ### Một số hình ảnh khi tham gia sự kiện
-![Ảnh sự kiện 1](/images/event2_1.png)
+![Ảnh sự kiện 1](/images/event2_1.jpg)
+![Ảnh sự kiện 2](/images/event2_2.jpg)
 
 > Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
