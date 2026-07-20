@@ -1,6 +1,6 @@
 baseURL = "https://toanvo2309.github.io/Workshop_N--3TCloudInfraSec_ResumeFit_VoTranBaoToan/"
 relativeURLs = false
-canonifyURLs = true
+canonifyURLs = false
 defaultContentLanguage = "en"
 
 # Change the default theme to be use when building the site with Hugo
