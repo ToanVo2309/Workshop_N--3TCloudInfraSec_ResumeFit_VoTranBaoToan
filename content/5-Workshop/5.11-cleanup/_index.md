@@ -1,93 +1,75 @@
 ---
-title: "Clean Up Resources and Cost Analysis"
+title: "Clean Up Resources"
 date: 2024-01-01
 weight: 11
 chapter: false
 pre: " <b> 5.11. </b> "
 ---
-### 5.11. Clean Up Resources and Cost Analysis
+### 5.11. Clean Up Resources and Cost Estimation
 
----
+#### 1. Resource Cleanup Procedure
 
-#### 1. AWS Resource Cleanup Procedure
+To avoid unnecessary costs from idle AWS resources after completing the lab and testing, perform the cleanup steps in the following order:
 
-To avoid unnecessary costs from idle AWS resources after finishing the lab and testing, perform the following cleanup steps in order:
-
-1. **Auto Scaling Group**: Delete the Auto Scaling Group first to prevent it from launching new instances. Terminate any remaining EC2 instances manually.
+1. **Auto Scaling Group**: Delete the Auto Scaling Group first to prevent it from automatically spawning new instances. Terminate remaining EC2 instances manually.
 2. **Application Load Balancer (ALB)**: Delete the ALB and associated Target Groups.
-3. **Database (RDS)**: Delete the PostgreSQL Database instance (skip the final snapshot option if you do not need to preserve database files). Delete the DB Subnet Group afterward.
-4. **NAT Gateways**: Delete the NAT Gateways. Wait until their state is fully `Deleted`, then release allocated static Elastic IPs.
-5. **VPC Infrastructure**: Clean up VPC Endpoints, Route Tables, Internet Gateway, Subnets, and finally delete the VPC `ResumeMatching-VPC`.
-6. **S3 Storage**: Empty the S3 bucket `resume-matching-storage-...` and then delete the bucket.
-7. **Secrets & IAM Roles**: Delete secrets from Secrets Manager and remove associated IAM Roles/Policies if no longer required.
+3. **Database (RDS)**: Delete the PostgreSQL Database instance (skip the final snapshot option if data preservation is not required). Delete the DB Subnet Group.
+4. **NAT Gateways**: Delete allocated NAT Gateways. Wait until state changes to `Deleted`, then release static Elastic IPs.
+5. **VPC Infrastructure**: Clean up Route Tables, Internet Gateway, Subnets, and delete the VPC `ResumeMatching-VPC`.
+6. **S3 Storage**: Empty all objects in the S3 bucket `resume-matching-storage-...` and delete the bucket.
+7. **Secrets Manager & IAM**: Delete stored secrets in AWS Secrets Manager and remove associated IAM Roles/Policies.
 
 ---
 
-#### 2. Detailed AWS Cost Breakdown Report
+#### 2. Infrastructure Cost Estimation (Cost Breakdown)
 
-This report is authored from an **AWS Cloud Solutions Architect** perspective using official **AWS Pricing Calculator** figures to estimate the monthly cost of running the deployed Resume Fit 3-Tier architecture.
-
-##### 2.1. Calculation Parameters & Assumptions
-* **Deployment Region:** US East (N. Virginia) – `us-east-1`.
+##### 2.1. Calculation Methodology & Assumptions
+* **Estimation Tool:** AWS Pricing Calculator (Official AWS Pricing Reference).
+* **Target Region:** US East (N. Virginia) – `us-east-1`.
 * **Pricing Model:** AWS On-Demand Pricing (No Reserved Instances or Savings Plans applied).
 * **Operating Schedule:** 730 hours/month (24/7 continuous operation).
-* **Workload Profile:** Demonstration & academic thesis defense environment (Low traffic volume).
+* **Traffic Profile:** Low traffic profile tailored for project demonstration and grading.
 
-##### 2.2. Estimated Monthly Cost Breakdown Table
+##### 2.2. Detailed AWS Service Monthly Cost Breakdown
 
 | STT | AWS Service | Configuration | Quantity | Estimated Monthly Cost (USD) | Notes | Total (USD) |
 | :---: | :--- | :--- | :---: | :---: | :--- | :---: |
-| 1 | **Amazon VPC** | Isolated Virtual Private Cloud (`10.0.0.0/16`) | 1 | 0.00 | Core network management, free of charge | **0.000** |
-| 2 | **Internet Gateway (IGW)** | Public Internet gateway for VPC | 1 | 0.00 | VPC routing component, free of charge | **0.000** |
-| 3 | **Subnets** | 02 Public, 02 Private App, 02 Private DB Subnets | 6 | 0.00 | Internal network segmentation, free | **0.000** |
-| 4 | **Security Groups** | Stateful Virtual Firewalls (`ALB`, `App`, `DB`, `Worker`) | 4 | 0.00 | Port & IP firewall rules, free of charge | **0.000** |
-| 5 | **NAT Gateway** | Managed NAT (`us-east-1`) + 02 Public IPv4 EIPs ($0.005/h/IP) | 2 | 73.045 | $0.045/h x 2 NAT + $0.005/h x 2 EIP x 730h | **73.045** |
-| 6 | **Amazon EC2** | `t3.micro` Linux (2 vCPU, 1 GiB RAM), On-Demand | 3 | 22.776 | 01 Backend + 02 ASG Instances ($0.0104/h) | **22.776** |
-| 7 | **Amazon EBS Storage** | General Purpose SSD (`gp3`), 30 GB / Volume | 3 | 7.200 | 90 GB Total x $0.08/GB-month (3000 IOPS free) | **7.200** |
-| 8 | **Amazon AMI** | Custom Amazon Machine Image for Backend | 1 | 0.00 | Application image storage (Free Tier) | **0.000** |
-| 9 | **Launch Template** | EC2 launch configuration template for ASG | 1 | 0.00 | EC2 deployment configuration tool, free | **0.000** |
-| 10 | **Auto Scaling Group** | Dynamic EC2 scaling (Desired: 2, Min: 2, Max: 4) | 1 | 0.00 | Compute auto-orchestration service, free | **0.000** |
-| 11 | **Application Load Balancer** | ALB Internet-facing (`us-east-1`) + 1 LCU min traffic | 1 | 22.265 | $0.0225/h ALB + $0.008/h LCU x 730h | **22.265** |
-| 12 | **Target Group** | Target Group performing Health Checks on port `8080` | 1 | 0.00 | ALB traffic routing configuration, free | **0.000** |
-| 13 | **Amazon RDS PostgreSQL** | `db.t3.micro` Single-AZ + 20 GB `gp3` Storage | 1 | 15.440 | DB Instance ($13.14) + Storage ($2.30) | **15.440** |
-| 14 | **Amazon S3 Standard** | Standard Tier Object Storage for CV/JD (`us-east-1`) | 5 GB | 0.120 | $0.023/GB x 5 GB + Low API Request volume | **0.120** |
-| 15 | **Amazon SQS** | Standard Queue + Dead Letter Queue (DLQ) | 2 | 0.000 | Within AWS Free Tier (1M reqs/month) | **0.000** |
-| 16 | **AWS Secrets Manager** | Secure storage for DB credentials & OpenAI API Key | 1 Secret | 0.400 | Management fee $0.40/secret/month | **0.400** |
-| 17 | **Amazon Cognito** | User Authentication & Management (User Pool) | 1 Pool | 0.000 | Within AWS Free Tier (< 50,000 MAU) | **0.000** |
-| 18 | **AWS Systems Manager** | Session Manager (Secure SSH access without Bastion) | 1 | 0.000 | Secure EC2 management access, free | **0.000** |
-| 19 | **Amazon CloudWatch** | Basic Metrics (EC2/ALB) + Basic Logs (< 5 GB) | 1 | 0.500 | System performance metrics & basic logs | **0.500** |
-| **TOTAL** | | | | | **ESTIMATED MONTHLY COST** | **141.746 USD** |
+| **1** | **Amazon VPC** | VPC 10.0.0.0/16, 2 Public Subnets, 4 Private Subnets, Internet Gateway | 01 VPC | 0.00 | Virtual network infrastructure free of charge | **0.00** |
+| **2** | **Security Group** | Virtual Firewalls (ALB-SG, Backend-SG, Worker-SG, RDS-SG) | 04 SGs | 0.00 | Inbound/Outbound security rules management | **0.00** |
+| **3** | **NAT Gateway** | Managed NAT Gateway ($0.045/hour/gateway + $0.045/GB data) | 02 Gateways | 65.75 | 1,460 hours On-Demand + ~1 GB Data Processed | **65.75** |
+| **4** | **Amazon EC2** | `t3.micro` Linux (2 vCPU, 1 GiB RAM), On-Demand ($0.0104/hour) | 03 Instances | 22.78 | 01 Backend Server + 02 EC2 in Auto Scaling Group | **22.78** |
+| **5** | **Amazon EBS** | `gp3` General Purpose SSD Storage, 30 GB per instance | 03 Volumes (90 GB) | 7.20 | $0.08/GB-month x 90 GB total allocation | **7.20** |
+| **6** | **AMI & Launch Template** | Launch Template configuration & custom Amazon Machine Image | 01 LT, 01 AMI | 0.00 | Instance template storage free of charge | **0.00** |
+| **7** | **Auto Scaling Group** | Dynamic Auto Scaling Group (Min: 2, Max: 4, Desired: 2) | 01 ASG | 0.00 | Auto Scaling orchestration service free of charge | **0.00** |
+| **8** | **Application Load Balancer** | Internet-facing ALB, Multi-AZ ($0.0225/hour + LCU) | 01 ALB | 16.44 | 730 hours operation + < 1 LCU traffic | **16.44** |
+| **9** | **Target Group** | Instance-type Target Group (HTTP Port 8080) | 01 Target Group | 0.00 | Target routing configuration free of charge | **0.00** |
+| **10** | **Amazon RDS PostgreSQL** | Single-AZ `db.t3.micro` ($0.018/hour) + 20 GB `gp3` Storage ($0.08/GB) | 01 DB Instance | 14.74 | $13.14 (Compute) + $1.60 (Storage) | **14.74** |
+| **11** | **Amazon S3** | S3 Standard Storage (~5 GB CV/JD files, $0.023/GB) | 01 Bucket | 0.12 | Candidate CV & JD files object storage | **0.12** |
+| **12** | **Amazon SQS & DLQ** | Standard Queue & Dead Letter Queue (< 1,000 requests/month) | 02 SQS Queues | 0.00 | Covered by AWS Free Tier (1M requests/month) | **0.00** |
+| **13** | **AWS Secrets Manager** | Secret storing DB Credentials, Auth Keys & OpenAI API Key | 01 Secret | 0.40 | Fixed charge $0.40/secret/month | **0.40** |
+| **14** | **Amazon Cognito** | User Pool managing user authentication (< 50,000 MAU) | 01 User Pool | 0.00 | Always free under 50,000 Monthly Active Users | **0.00** |
+| **15** | **AWS Systems Manager** | Session Manager secure shell terminal access to EC2 | 01 Service | 0.00 | Administrative shell access free of charge | **0.00** |
+| **16** | **Amazon CloudWatch** | Basic Metrics (5-min frequency) + Basic Monitoring Logs | 01 Dashboard | 0.00 | Covered under standard monitoring tier | **0.00** |
+| **TOTAL** | | | | | | **127.43 USD** |
 
----
+##### 2.3. Cost Breakdown & Infrastructure Analysis
 
-##### 2.3. Total Monthly Implementation Cost
-* **Total Estimated Cost:** **$141.746 USD / month**.
+1. **Total Monthly Operating Cost:**
+   * Total estimated monthly cost to maintain the Resume Fit system is **$127.43 USD / month**.
 
-##### 2.4. Cost Component Analysis
-* **NAT Gateway ($73.045 USD – 51.53% of total cost):** Represents the single largest cost component.
-  * *Drivers:* Maintaining 02 NAT Gateways across Availability Zones (Public Subnets A & B) for High Availability (HA) to enable private EC2 instances to reach OpenAI APIs and repository updates. Costs are driven by fixed hourly charges ($0.045/h/gateway) and public IPv4 address fees ($0.005/h/IP).
-* **Amazon EC2 ($22.776 USD – 16.07%):** On-Demand cost for 3 `t3.micro` Linux instances running 24/7.
-* **Application Load Balancer ($22.265 USD – 15.71%):** Fixed hourly cost ($0.0225/h) plus baseline 1 LCU usage.
-* **Amazon RDS PostgreSQL ($15.440 USD – 10.89%):** Single-AZ `db.t3.micro` database instance and 20 GB `gp3` storage.
-* *Remaining Services (EBS, S3, Secrets Manager, CloudWatch):* Account for only **5.80%** of total costs.
+2. **Cost Distribution Analysis:**
+   * **Highest Cost Driver:** **NAT Gateway** incurring **$65.75 USD / month** (**51.6%** of total budget). Fixed hourly charges for dual NAT Gateways ($0.045/hour x 2) represent the dominant cost component.
+   * **Compute Tier (EC2 & EBS):** Combined cost for 3 `t3.micro` instances and 90 GB `gp3` storage is **$29.98 USD / month** (**23.5%**).
+   * **Load Balancing (ALB):** ALB fixed availability fee is **$16.44 USD / month** (**12.9%**).
+   * **Database Tier (RDS PostgreSQL):** Single-AZ `db.t3.micro` instance fee is **$14.74 USD / month** (**11.6%**).
 
-##### 2.5. AWS $200 Credits Feasibility Evaluation
-* **Conclusion:** The **$200 AWS Credits** allocation is **SUFFICIENT** to cover the entire deployment and operational cost for the project evaluation period.
-* **Evaluation Basis:**
-  1. *Continuous 24/7 Monthly Operation:* Running 730 hours continuously for a full month costs **$141.75 USD**, leaving a buffer of **$58.25 USD** in credits.
-  2. *Typical Thesis Defense Window (1–2 Weeks):* Operating the infrastructure solely during the evaluation period (7 to 14 days) costs between **$33.00 USD and $66.00 USD**, consuming less than **33%** of the allocated $200 Credits.
+3. **Evaluation against $200 USD AWS Credit Limit:**
+   * A **$200 USD AWS Credit** budget is **FULLY SUFFICIENT** to run the complete production environment 24/7 for **1.5 months (approx. 47 days)**.
+   * Under realistic demo conditions (operating ~8-10 hours/day during evaluation), the $200 credit easily extends operational lifespan to **3 to 4 months**.
 
-##### 2.6. Cost Optimization Recommendations (Architecture Retained)
-To optimize costs **without altering the current 3-Tier architecture**, the following strategies are recommended:
-1. **Consolidate NAT Gateways (Save $36.53/month):**
-   * *Action:* Consolidate from 02 NAT Gateways down to **01 NAT Gateway** in Public Subnet A while retaining all 6 subnets. Route outbound traffic from both Private App Subnets through this single NAT Gateway.
-   * *Impact:* Reduces NAT Gateway cost by 50% from $73.05 to **$36.52 USD/month**.
-2. **Automated Scheduled Start/Stop:**
-   * *Action:* Schedule EC2 instances to stop and set Auto Scaling Desired Capacity to `0` outside working/testing hours.
-   * *Impact:* Cuts EC2 compute and ALB LCU expenses by 60–70%.
-3. **Deploy S3 Gateway Endpoint (Free):**
-   * *Action:* Attach a free VPC S3 Gateway Endpoint.
-   * *Impact:* Routes S3 upload/download traffic over the internal AWS network, bypassing NAT Gateway data processing fees entirely.
-4. **Configure CloudWatch Log Retention:**
-   * *Action:* Set log retention period to **7 days** instead of *Never Expire*.
-   * *Impact:* Prevents unnecessary long-term log storage accumulation.
+##### 2.4. Cost Optimization Recommendations
+Cost reduction strategies while preserving the current 3-Tier architecture:
+
+* **Consolidate NAT Gateways in Dev/Test:** Consolidate from 2 NAT Gateways down to 1 NAT Gateway in `Public Subnet A` (routing `Private Subnet B` traffic through NAT Gateway A). Saves **$32.88 USD / month** immediately with zero application logic impact.
+* **Automated Operational Schedules (Auto Stop/Start):** Implement AWS EventBridge schedules to automatically stop EC2 and RDS instances during non-working hours, reducing compute costs by up to 60% (saving **~$25.00 USD / month**).
+* **CloudWatch Log Retention Policies:** Set CloudWatch log retention to 7 days instead of `Never Expire` to prevent accumulating log storage costs.
